@@ -357,9 +357,6 @@ static void sentry_request(struct sentry_config *sc, char *msg, size_t len) {
 	uwsgi_uuid(uuid);
 	if (uwsgi_buffer_append(ub_body, "{\"event_id\":\"", 13)) goto end;
 	if (uwsgi_buffer_append(ub_body, uuid, 36)) goto end;
-// 	if (uwsgi_buffer_append(ub_body, uuid+9, 8)) goto end;
-// 	if (uwsgi_buffer_append(ub_body, uuid+18, 8)) goto end;
-// 	if (uwsgi_buffer_append(ub_body, uuid+27, 8)) goto end;
 	if (uwsgi_buffer_append(ub_body, "\"", 1)) goto end;
 
 	if (sc->level) {
